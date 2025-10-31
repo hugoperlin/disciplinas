@@ -113,6 +113,53 @@ Principais métodos utilizados:
 
 Além desses, a interface oferece métodos para execução de consultas, chamadas de Stored Procedures e controle de propriedades da conexão.  
 
+### Gerenciamento de Credenciais
+
+Escrever as credenciais de acesso ao banco de dados dentro do código-fonte é considerado um grave erro, pois abre possibilidades para diferentes vulnerabilidades de segurança.
+
+Uma boa prática, é armanzenar as credenciais em um arquivo de variáveis de ambiente, geralmente chamado de `.env`. Esse tipo de arquivo possui uma estrutura de `CHAVE=VALOR`, geralmente em texto, onde cada linha define o valor de uma variável diferente.
+
+No caso de um banco de dados, geralmente temos as seguintes variáveis:
+
+```env
+URL_DB=LINK PARA O BANCO
+DB_NAME=NOME DO BANCO
+DB_USER=USUARIO DO BANCO
+DB_PASSWORD=SENHA DO BANCO
+```
+
+Para manipular arquivos `.env` no Java, uma das possibilidades é utilizar a seguinte biblioteca:
+
+```xml
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+```
+
+Para facilitar a leitura das variáveis, a sugestão é definir uma classe que seja responsável pelo acesso aos dados.
+
+Arquivo `Env.java`.
+```java
+import io.github.cdimascio.dotenv.Dotenv;
+
+public class Env {
+    
+    private static Dotenv dotenv;
+    private Env(){}
+    public static String get(String key){
+        if(dotenv == null){
+            dotenv = Dotenv.load();
+        }
+        return dotenv.get(key);
+    }
+ 
+}
+
+```
+
+
 ---
 
 ## 2. Criar um `PreparedStatement`. 
