@@ -117,7 +117,7 @@ Além desses, a interface oferece métodos para execução de consultas, chamada
 
 Escrever as credenciais de acesso ao banco de dados dentro do código-fonte é considerado um grave erro, pois abre possibilidades para diferentes vulnerabilidades de segurança.
 
-Uma boa prática, é armanzenar as credenciais em um arquivo de variáveis de ambiente, geralmente chamado de `.env`. Esse tipo de arquivo possui uma estrutura de `CHAVE=VALOR`, geralmente em texto, onde cada linha define o valor de uma variável diferente.
+Uma boa prática, é armanzenar as credenciais em um arquivo de variáveis de ambiente, geralmente chamado de `.env`. Esse tipo de arquivo possui uma estrutura de `CHAVE=VALOR`, geralmente em texto, onde cada linha define o valor de uma variável diferente. Em um projeto Maven, o arquivo `.env` deve ficar no mesmo nível de diretório do arquivo `pom.xml`.
 
 No caso de um banco de dados, geralmente temos as seguintes variáveis:
 
