@@ -122,7 +122,7 @@ Uma boa prática, é armanzenar as credenciais em um arquivo de variáveis de am
 No caso de um banco de dados, geralmente temos as seguintes variáveis:
 
 ```env
-URL_DB=LINK PARA O BANCO
+DB_URL=LINK PARA O BANCO
 DB_NAME=NOME DO BANCO
 DB_USER=USUARIO DO BANCO
 DB_PASSWORD=SENHA DO BANCO
