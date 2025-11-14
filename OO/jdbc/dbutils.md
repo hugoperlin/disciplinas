@@ -34,3 +34,8 @@ public class DBUtils {
 
 O método ``getLastId`` permite recuperar qual foi o último id gerado pelo banco de dados ao fazer um *insert*. Note que o método recebe como parâmetro um objeto da classe ``PreparedStatement`` que foi utilizado para executar o comando SQL ``INSERT``. O método suporta a recupeção do id de diferentes bancos de dados.
 
+**IMPORTANTE**: Ao criar o objeto da classe ``PreparedStatement``, deve ser passado o parâmetro ``Statement.RETURN_GENERATED_KEYS``.
+
+```java
+PreparedStatement stmt = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+```
